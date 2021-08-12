@@ -115,7 +115,8 @@ func newClientModel(config *Configuration, ctl mvc.Controller) *ClientModel {
 
 	// configure TLS SNI
 	m.tlsConfig.ServerName = serverName(m.serverAddr)
-	m.tlsConfig.InsecureSkipVerify = useInsecureSkipVerify()
+	m.tlsConfig.InsecureSkipVerify = true  //去除证书验证
+	//m.tlsConfig.InsecureSkipVerify = useInsecureSkipVerify()
 
 	return m
 }
